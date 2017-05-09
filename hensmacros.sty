@@ -1,0 +1,145 @@
+\ProvidesPackage{hensmacros}[2017/05/08 v1.0 Hennings own macros]
+\RequirePackage{xcolor}
+
+\xdefinecolor{cnltxbrown}{rgb}{0.60,0.25,0.15}
+\xdefinecolor{cnltxblue}{rgb}{0.02,0.04,0.48}
+\xdefinecolor{cnltxred}{rgb}{0.65,0.04,0.07}
+\xdefinecolor{cnltxgreen}{rgb}{0.06,0.44,0.08}
+\xdefinecolor{cnltxgray}{gray}{0.5}
+\colorlet{cnltxyellow}{yellow!40!brown}
+\colorlet{cnltx}{cnltxred}
+\xdefinecolor{cnltxformalblue}{rgb}{0,0.2,0.6}
+\xdefinecolor{cnltxformalred}{rgb}{0.8,0.1,0.2}
+
+
+ \renewcommand*\sectionformat{%
+    \textcolor{cnltx}{\thesection\autodot}\enskip
+  }
+  \renewcommand*\subsectionformat{%
+    \textcolor{cnltx}{\thesubsection\autodot}\enskip
+  }
+  \renewcommand*\subsubsectionformat{%
+    \textcolor{cnltx}{\thesubsubsection\autodot}\enskip
+}
+
+
+\newrobustcmd*\cnltxpackagenameformat[1]{\textcolor{cnltxred}{\textsc{#1}}} %delete brown afterwards
+
+\newrobustcmd*\cnltx@newpackagename[2]{%
+  \newcommand*#1{\texorpdfstring{\cnltxpackagenameformat{#2}}{#2}}%
+}
+\newrobustcmd*\newpackagename{\cnltx@newpackagename}
+
+
+\newcommand\pkg[1]{\textsc{#1}}
+
+\RequirePackage[oldstyle]{libertine}
+\RequirePackage{libertinehologopatch}
+\RequirePackage[supstfm=libertinesups]{superiors}
+
+
+
+%% set a color-scheme for the manual:
+%\newrobustcmd\definecolorscheme{%
+%  \cnltx@define@colorscheme
+%}
+%\newrobustcmd*\cnltx@define@colorscheme[2]{%
+%  \csgdef{cnltx@color@scheme@#1}{}%
+%  \forcsvlist{\cnltx@get@color{#1}}{#2}%
+%}
+%\newcommand*\cnltx@get@color[2]{\cnltx@get@color@aux{#1}#2\q@stop}
+%\def\cnltx@get@color@aux#1#2=>#3\q@stop{%
+%  \listcsgadd{cnltx@color@scheme@#1}{%
+%    \colorlet{\trim@spaces{#2}}{\trim@spaces{#3}}%
+%  }%
+%}
+%
+%\newcommand*\cnltx@use@colorscheme[1]{%
+%  \forlistcsloop{\@firstofone}{cnltx@color@scheme@#1}%
+%}
+%
+%\pgfkeys{
+%  cnltx/.cd,
+%    color-scheme/.code = \cnltx@use@colorscheme{#1}
+%}
+%
+%% predefined color-schemes:
+%\definecolorscheme{default}{
+%  cs            => cnltxbrown ,
+%  option        => cnltxyellow ,
+%  module        => cnltxblue ,
+%  comment       => cnltxgray ,
+%  beginend      => red ,
+%  env           => black ,
+%  argument      => black ,
+%  meta          => black!80 ,
+%  cnltx         => cnltxred ,
+%  cnltxbg       => white ,
+%  link          => black!90 ,
+%  versionnote   => black!75 ,
+%  bibentry      => cnltxgreen ,
+%  bibentryfield => black ,
+%  expandable    => red ,
+%  unexpandable  => black ,
+%  makeidxkey    => cnltxgreen ,
+%  makeidxstring => black ,
+%  math          => cnltxgreen
+%}
+%
+%\definecolorscheme{blue}{
+%  cs            => cnltxbrown ,
+%  option        => cnltxgreen ,
+%  module        => cnltxred ,
+%  comment       => cnltxgray ,
+%  beginend      => red ,
+%  env           => black ,
+%  argument      => black ,
+%  meta          => black!80 ,
+%  cnltx         => cnltxblue ,
+%  cnltxbg       => yellow!10 ,
+%  link          => cnltx ,
+%  versionnote   => black!75 ,
+%  bibentry      => cnltxyellow ,
+%  bibentryfield => black ,
+%  expandable    => red ,
+%  unexpandable  => black ,
+%  makeidxkey    => cnltxyellow ,
+%  makeidxstring => black ,
+%  math          => cnltxgreen
+%}
+%
+%\definecolorscheme{formal}{
+%  cs            => black ,
+%  option        => cnltxformalblue ,
+%  module        => cnltxblue ,
+%  comment       => cnltxgray ,
+%  beginend      => red ,
+%  env           => black ,
+%  argument      => black ,
+%  meta          => black!80 ,
+%  cnltx         => cnltxformalblue ,
+%  cnltxbg       => white ,
+%  link          => black!90 ,
+%  versionnote   => black!75 ,
+%  bibentry      => black ,
+%  bibentryfield => black ,
+%  expandable    => red ,
+%  unexpandable  => black ,
+%  makeidxkey    => black ,
+%  makeidxstring => black ,
+%  math          => cnltxgreen
+%}
+%
+%% set the default:
+%\setcnltx{color-scheme=default}
+%
+%
+
+ \RequirePackage{catchfilebetweentags} % load the package
+
+\newcommand{\loadTable}[1]{\ExecuteMetaData["C:/Users/H.Schmies/Documents/Code Archiv/TeX/Repository/tables.tex"]{#1}} % call the package macro to load chunk from%
+\newcommand{\loadEquation}[1]{\ExecuteMetaData["C:/Users/H.Schmies/Documents/Code Archiv/TeX/Repository/equations.tex"]{#1}}
+
+
+
+\endinput
